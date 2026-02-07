@@ -6,4 +6,5 @@ venv/
 .venv/
 *.pyc
 *.egg-info/
-*.egg
+*.eggbuild/
+*.egg-info/
