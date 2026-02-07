@@ -35,7 +35,21 @@ Module's only goal is to attach _DIE signatures_, as tags, to samples submitted 
 
 ## Setup and configuration
 
-### Dependencies
+### Using Docker (Recommended)
+
+The easiest way to use this module is with Docker. Docker images are automatically built and published to GitHub Container Registry (GHCR) on every release.
+
+```bash
+# Pull the latest image
+$ docker pull ghcr.io/ozeliurs/karton-die-classifier:latest
+
+# Run with your Karton configuration
+$ docker run -v /path/to/karton.ini:/etc/karton/karton.ini ghcr.io/ozeliurs/karton-die-classifier:latest --config-file /etc/karton/karton.ini
+```
+
+### Manual Installation
+
+#### Dependencies
 
 ```bash
 $ curl -s https://api.github.com/repos/horsicq/DIE-engine/releases/latest | grep browser_download_url | awk -F"\":" '{print $2}' | tr -d "\"" | grep deb | wget -q --show-progress -i -
@@ -43,7 +57,7 @@ $ curl -s https://api.github.com/repos/horsicq/DIE-engine/releases/latest | grep
 $ sudo dpkg -i die_3.02-20210605_amd64.deb
 ```
 
-### Modules install
+#### Modules install
 
 ```bash
 $ git clone https://github.com/raw-data/karton-die-classifier/
